@@ -1,0 +1,16 @@
+{{#extends "main"}}
+{{#block "content"}}
+<h1>Carrito de Compras</h1>
+{{#if products.length}}
+    <ul>
+    {{#each products}}
+        <li>{{this.product.title}} - Cantidad: {{this.quantity}}</li>
+    {{/each}}
+    </ul>
+    <form action="/:cid/purchase" method="POST">
+        <button type="submit">Finalizar Compra</button>
+    </form>
+{{else}}
+    <p>El carrito está vacío.</p>
+{{/if}}
+{{/block}}

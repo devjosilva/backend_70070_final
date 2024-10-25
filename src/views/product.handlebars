@@ -1,0 +1,24 @@
+<!-- products.handlebars -->
+<div class="container">
+    <div class="row">
+        {{#each products}}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{this.thumbnails.[0]}}" class="card-img-top" alt="{{this.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">${{this.price}}</p>
+                    <a href="/api/carts/:cid/product/{{this._id}}" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <nav>
+        <ul class="pagination">
+            {{#each range totalPages}}
+            <li class="page-item"><a class="page-link" href="/products?page={{this}}">{{this}}</a></li>
+            {{/each}}
+        </ul>
+    </nav>
+</div>
